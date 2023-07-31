@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -51,7 +53,8 @@ public class Client {
 	private String country;
 
 	@Column(name = "state")
-	private Boolean state;
+	@Enumerated(EnumType.ORDINAL)
+	private StatusClient state;
 
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnore
@@ -139,11 +142,11 @@ public class Client {
 		this.country = country;
 	}
 
-	public Boolean getState() {
-		return state;
+	public String getState() {
+		return state.getValue();
 	}
 
-	public void setState(Boolean state) {
+	public void setState(StatusClient state) {
 		this.state = state;
 	}
 
@@ -162,7 +165,7 @@ public class Client {
 	}
 
 	public Client(String companyName, String firstName, String lastName, String email, String phone, String address,
-			String zipCode, String city, String country, Boolean state) {
+			String zipCode, String city, String country, StatusClient state) {
 		super();
 		this.companyName = companyName;
 		this.firstName = firstName;
