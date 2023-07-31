@@ -1,0 +1,9 @@
+com\crm\group\repository\OrderRepository.class
+com\crm\group\service\ClientService.class
+com\crm\group\controller\OrderController.class
+com\crm\group\service\OrderService.class
+com\crm\group\controller\ClientController.class
+com\crm\group\repository\ClientRepository.class
+com\crm\group\model\Order.class
+com\crm\group\model\Client.class
+com\crm\group\TpCrmClientCustomerGroupApplication.class
